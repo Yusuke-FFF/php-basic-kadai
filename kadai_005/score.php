@@ -20,8 +20,11 @@
       $score9 = '30';
       $score10 = '60';
 
-      echo ($score1 + $score2 + $score3 + $score4 + $score5 + $score6 + $score7 + $score8 + $score9 + $score10) / 10;
+      $Total_score = ($score1 + $score2 + $score3 + $score4 + $score5 + $score6 + $score7 + $score8 + $score9 + $score10) ;
+
+      echo $Total_score / 10;
        ?>
+     
    </p>
 </body>
 
