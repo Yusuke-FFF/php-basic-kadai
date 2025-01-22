@@ -7,42 +7,37 @@
 </head>
 
 <body>
-  <p>
-  <?php
-
-function sort_2way(array $array, string $order): array {
-    // ソート方向に応じて処理を分岐
-    if ($order === "asc") {
-        // 昇順でソート
+<p>
+<?php
+    function sort_2way(array $array, bool $order): void {
+    // ソート方向を条件式で切り替え
+    if ($order === true) {
+        // 昇順ソート
         sort($array);
-    } elseif ($order === "desc") {
-        // 降順でソート
-        rsort($array);
+        echo "昇順:<br>";
     } else {
-        // 無効な値が渡された場合の例外処理
-        throw new InvalidArgumentException("Invalid order value. Use 'asc' for ascending or 'desc' for descending.");
+        // 降順ソート
+        rsort($array);
+        echo "降順:<br>";
     }
-    return $array;
+
+    // foreach文でソート結果を順番に表示
+    foreach ($array as $value) {
+        echo "$value<br>";
+    }
 }
 
-$nums = [15, 4, 18, 23, 10 ];
+// ソートする配列を宣言
+$nums = [15,4,18,23,10];
 
 // 昇順ソート
-$sorted_asc = sort_2way($nums, "asc");
-echo "昇順:<br>";
-foreach ($sorted_asc as $key => $value) {
-    echo "$value<br>";
-}
+sort_2way($nums, true);
 
 // 降順ソート
-$sorted_desc = sort_2way($nums, "desc");
-echo "降順:<br>";
-foreach ($sorted_desc as $key => $value) {
-    echo "$value<br>";
-}
+sort_2way($nums, false);
 ?>
 
-  </p>
+</p>
 </body>
 
 </html>
